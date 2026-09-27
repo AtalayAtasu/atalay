@@ -230,7 +230,7 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
           <div style="font-size:13px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">The Ultimate Disruption</div>
           <div style="font-size:11px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Rethinking Business in a World Transformed by Climate Change</div>
         </div>
-        <div style="font-size:11px;color:#90caf9;flex-shrink:0">Learn more →</div>
+        <div style="font-size:11px;color:#90caf9;flex-shrink:0;text-align:right;line-height:1.7">Learn more →<br><span onclick="event.stopPropagation();showKeynote()" style="color:#fff;font-weight:600">▶ Watch the keynote</span></div>
       </div>
     </div>
   </div>
@@ -299,7 +299,7 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
           <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:3px">The Ultimate Disruption</div>
           <div style="font-size:12px;color:rgba(255,255,255,.65)">Rethinking Business in a World Transformed by Climate Change · HBR Press · with Luk Van Wassenhove</div>
         </div>
-        <span onclick="showPage('home');setTimeout(()=>document.getElementById('section-book').scrollIntoView({{behavior:'smooth'}}),100)" style="font-size:12px;color:#90caf9;cursor:pointer;white-space:nowrap;flex-shrink:0">Learn more →</span>
+        <span onclick="showPage('home');setTimeout(()=>document.getElementById('section-book').scrollIntoView({behavior:'smooth'}),100)" style="font-size:12px;color:#90caf9;cursor:pointer;white-space:nowrap;flex-shrink:0">Learn more →</span>
       </div>
     </div>
   </div>
@@ -400,6 +400,7 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
             <span class="pill pill-t">With Luk Van Wassenhove</span>
           </div>
           <div class="note-box"><a href="https://www.amazon.com/Ultimate-Disruption-Rethinking-Business-Transformed-ebook/dp/B0GD25HN42" target="_blank" rel="noopener noreferrer">Pre-order on Amazon</a>.</div>
+          <div style="margin-top:1rem"><span class="btn-p" onclick="showKeynote()">▶ Watch the keynote</span></div>
         </div>
       </div>
     </div>
@@ -820,6 +821,20 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
       </div>
     </div>
   </div>
+  <div class="divider"></div>
+  <div class="section" id="section-keynote" style="scroll-margin-top:70px">
+    <div class="section-inner">
+      <div class="sec-tag">Keynote</div>
+      <div class="sec-title" style="margin-bottom:1rem">The Ultimate Disruption — the talk</div>
+      <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#10262F;box-shadow:0 6px 30px rgba(26,95,168,.2)">
+        <iframe id="keynoteFrame" data-src="keynote.html" title="The Ultimate Disruption — keynote" allow="fullscreen" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+      <div style="margin-top:1rem;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <a href="keynote.html" target="_blank" rel="noopener" class="btn-p" style="text-decoration:none">Open full screen ↗</a>
+        <span style="font-size:12px;color:#666">Click the slides or use ← → to move through the talk; press ? for all controls.</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ===================== MEDIA ===================== -->
@@ -975,6 +990,11 @@ function showPage(id){
   if(lnk)lnk.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   document.getElementById('navLinks').classList.remove('open');
+  if(id==='book'){const f=document.getElementById('keynoteFrame');if(f&&!f.getAttribute('src'))f.src=f.dataset.src;}
+}
+function showKeynote(){
+  showPage('book');
+  setTimeout(()=>{const k=document.getElementById('section-keynote');if(k)k.scrollIntoView({behavior:'smooth'});},350);
 }
 function toggleMenu(){
   document.getElementById('navLinks').classList.toggle('open');
