@@ -174,6 +174,36 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
   .pub-row{grid-template-columns:1fr;gap:3px}
   .footer-inner{flex-direction:column;text-align:center}
 }
+
+/* ---------- Compact course and tool cards ---------- */
+.tgrid{display:grid;gap:12px}
+.tgrid.c3{grid-template-columns:repeat(3,1fr)}
+.tgrid.c4{grid-template-columns:repeat(4,1fr)}
+.tc{background:#fff;border:1px solid #d6e6f6;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
+.tc:hover{box-shadow:0 6px 18px rgba(26,95,168,.12);transform:translateY(-1px)}
+.tc-h{display:flex;align-items:center;gap:10px;padding:10px 12px;min-height:62px;box-sizing:border-box;color:#fff;background:linear-gradient(120deg,var(--c1),var(--c2))}
+.tc-i{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.tc-i svg{width:20px;height:20px}
+.tc-k{font-size:9.5px;letter-spacing:.9px;text-transform:uppercase;opacity:.8;line-height:1.3}
+.tc-h h4{font-size:13px;font-weight:600;line-height:1.25;margin:1px 0 0;color:#fff}
+.tc-b{padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.tc-b p{font-size:12px;color:#444;line-height:1.5;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chips span{font-size:10.5px;line-height:1;padding:4px 7px;border-radius:12px;background:#f0f5fb;color:#1a5fa8;border:1px solid #d6e6f6}
+.tc-book{font-size:11px;color:#0f5040;display:flex;gap:6px;align-items:flex-start;line-height:1.4}
+.tc-book svg{flex:none;width:13px;height:13px;margin-top:1px}
+.tc-book a{color:#0f5040;font-style:italic;text-decoration:underline}
+.tc-f{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:auto;padding-top:2px}
+.tc-f a.go{background:#90caf9;color:#0d3d6e;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:4px;text-decoration:none}
+.tc-f a.go:hover{background:#7bbcf2}
+.tc-f a.lk{font-size:11.5px;color:#1a5fa8;text-decoration:none}
+.tc-f a.lk:hover{text-decoration:underline}
+.tc-f .by{margin-left:auto;font-size:9.5px;color:#aaa}
+.sub-h{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:1.1rem 0 .6rem}
+.sub-h:first-of-type{margin-top:.4rem}
+.inst-card{display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+@media(max-width:1000px){.tgrid.c3,.tgrid.c4{grid-template-columns:1fr 1fr}}
+@media(max-width:750px){.tgrid.c3,.tgrid.c4{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -365,7 +395,7 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
         <div class="card-blue">
           <h3 style="font-size:13px;font-weight:600;color:#fff;margin-bottom:.4rem">INSEAD Hoffmann Institute</h3>
           <p style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:.85rem">Academic Director since 2026, overseeing grants, research strategy, and stakeholder engagement at INSEAD's flagship sustainability research institute.</p>
-          <a href="https://www.insead.edu" target="_blank" style="font-size:12px;color:#90caf9">insead.edu →</a>
+          <a href="https://www.insead.edu/hoffmann-institute" target="_blank" style="font-size:12px;color:#90caf9">Institute website →</a>
         </div>
         <div class="card-blue">
           <h3 style="font-size:13px;font-weight:600;color:#fff;margin-bottom:.4rem">Sustainable Business Initiative</h3>
@@ -428,6 +458,31 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
       <div style="margin-top:1rem;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
         <a href="keynote-academic.html" target="_blank" rel="noopener" class="btn-p" style="text-decoration:none">Open full screen ↗</a>
         <span style="font-size:12px;color:#666">Click the slides or use ← → to move through the talk; press R for the research behind each slide, ? for all controls.</span>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- INSTITUTES -->
+  <div class="section section-alt">
+    <div class="section-inner">
+      <div class="sec-tag">Research homes</div>
+      <div class="sec-title">Institutes</div>
+      <div class="grid-2">
+        <div class="card-blue inst-card">
+          <div>
+            <h3 style="font-size:14px;font-weight:600;color:#fff;margin-bottom:.4rem">INSEAD Hoffmann Institute</h3>
+            <p style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.6">Founded in 2018 through a gift from André and Rosalie Hoffmann, the Institute supports INSEAD’s practical research on business sustainability and brings together faculty, students, alumni and partners. Academic Director since 2026.</p>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://www.insead.edu/hoffmann-institute" target="_blank" rel="noopener" class="btn-p" style="text-decoration:none;font-size:12px;padding:8px 16px">Visit the Institute →</a><a href="https://www.insead.edu/hoffmann-institute/teaching" target="_blank" rel="noopener" style="font-size:12px;color:#90caf9;align-self:center">Teaching →</a></div>
+        </div>
+        <div class="card-blue inst-card">
+          <div>
+            <h3 style="font-size:14px;font-weight:600;color:#fff;margin-bottom:.4rem">INSEAD Sustainable Business Initiative</h3>
+            <p style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.6">A formal way for INSEAD faculty to come together on emerging sustainability research and new opportunities, building on the school’s long record in the field.</p>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://www.insead.edu/sustainable-business-initiative" target="_blank" rel="noopener" class="btn-p" style="text-decoration:none;font-size:12px;padding:8px 16px">Visit the Initiative →</a><a href="https://knowledge.insead.edu/series/sustainable-business" target="_blank" rel="noopener" style="font-size:12px;color:#90caf9;align-self:center">INSEAD Knowledge series →</a></div>
+        </div>
       </div>
     </div>
   </div>
@@ -584,39 +639,25 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
     </div>
   </div>
 
+  <!-- INSEAD COURSES -->
+  <div class="section">
+    <div class="section-inner">
+      <div class="sec-title">Current courses</div>
+      <div class="sub-h">Degree programmes</div>
+      <div class="tgrid c3"><div class="tc"><div class="tc-h" style="--c1:#0d3d6e;--c2:#1a5fa8"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><div><div class="tc-k">Elective · GEMBA · MBA · MiM</div><h4>Business Sustainability Thinking</h4></div></div><div class="tc-b"><p>When is sustainability a central business problem, and how do firms build the capabilities to act on it while the rules keep shifting?</p><div class="chips"><span>Salmon Rush simulation</span><span>Stakeholder framework</span><span>Lobbying Game</span><span>Circular business models</span><span>NPV+</span><span>Sustainability Compass</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: stakeholder pressures, NPV+ and circularity, in <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://atalayatasu.github.io/atalay/bst/" target="_blank" rel="noopener" class="go">Course website (students) →</a></div></div></div><div class="tc"><div class="tc-h" style="--c1:#085041;--c2:#1d9e75"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14-4.5"/><path d="M6 3v4h4"/><path d="M4 13a8 8 0 0 0 14 4.5"/><path d="M18 21v-4h-4"/></svg></span><div><div class="tc-k">MiM · Practical</div><h4>Sustainability and Business Model Innovation</h4></div></div><div class="tc-b"><p>Practical course linking sustainability to business model redesign and circular economy strategy.</p><div class="chips"><span>Circular business models</span><span>Access and process limits</span><span>Value capture</span><span>Partners and ecosystems</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: reinventing the business, in <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://atalayatasu.github.io/atalay/sbmi/" target="_blank" rel="noopener" class="go">Course website (students) →</a></div></div></div><div class="tc"><div class="tc-h" style="--c1:#3c3489;--c2:#6a62c9"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="12" cy="18" r="2"/><path d="M8 6.5l8 .5M7 8l4 8M17 9l-4 7"/></svg></span><div><div class="tc-k">PhD</div><h4>Operations Strategy</h4></div></div><div class="tc-b"><p>Doctoral seminar on research methods and frontiers in operations management.</p><div class="chips"><span>Research methods</span><span>Frontiers in OM</span></div></div></div></div>
+      <div class="sub-h">Executive education</div>
+      <div class="tgrid c3"><div class="tc"><div class="tc-h" style="--c1:#633806;--c2:#c6972f"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14M10 20V10M16 20V6M22 20H2"/><path d="M4 10l6-4 6-2 5-1"/></svg></span><div><div class="tc-k">Executive education · Co-Director</div><h4>INSEAD Business Sustainability Programme (IBSP)</h4></div></div><div class="tc-b"><p>Open programme equipping senior leaders with sustainability strategy frameworks, co-directed with Karel Cool. Participants work on their own company’s challenge.</p><div class="chips"><span>Building the case</span><span>Strategic opportunity</span><span>Execution</span><span>Measurement, reporting and financing</span><span>Sustainability Compass</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: the stakeholder lens, NPV+ and circular business models of <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://atalayatasu.github.io/atalay/ibsp/" target="_blank" rel="noopener" class="go">Course website (participants) →</a><a href="https://www.insead.edu/executive-education/strategy/business-sustainability-programme/content" target="_blank" rel="noopener" class="lk">Content</a><a href="https://www.insead.edu/executive-education/strategy/business-sustainability-programme" target="_blank" rel="noopener" class="lk">Programme page</a></div></div></div><div class="tc"><div class="tc-h" style="--c1:#10262F;--c2:#1A3642"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#fff"/></svg></span><div><div class="tc-k">Executive course · INSEAD Hoffmann Institute</div><h4>The Ultimate Disruption (TUD)</h4></div></div><div class="tc-b"><p>What the sustainability transition demands of business leaders: short instructor-led videos, embedded live case simulations, knowledge checks and AI-coached reflection.</p><div class="chips"><span>Salmon Rush</span><span>Alpha/Zing live case</span><span>NPV+</span><span>Ecosystem live case</span><span>Electives: Paris 2024 · Tilos · LCA</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: the course companion to <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://www.insead.edu/hoffmann-institute/teaching" target="_blank" rel="noopener" class="go">Course description →</a></div></div></div><div class="tc"><div class="tc-h" style="--c1:#0d47a1;--c2:#2e6db4"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span><div><div class="tc-k">Online · 6 months · Programme Director</div><h4>Sustainability Leadership and Strategy Programme</h4></div></div><div class="tc-b"><p>Online and live virtual programme, delivered with Emeritus, for senior leaders turning sustainability into a source of competitive advantage.</p><div class="chips"><span>Business case</span><span>Strategic opportunity</span><span>Circular economy</span><span>Regulation and governance</span><span>Impactful leadership</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: from the business case to the circular economy and regulation in <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://www.insead.edu/executive-education/programmes-delivered-emeritus/sustainability-leadership-strategy-programme" target="_blank" rel="noopener" class="go">Programme page →</a><a href="https://onlineprogrammes.insead.edu/sustainability-leadership-programme" target="_blank" rel="noopener" class="lk">Online programme page</a></div></div></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
   <!-- INTERACTIVE TOOLS -->
   <div class="section">
     <div class="section-inner">
       <div class="sec-tag">Interactive tools &amp; simulations</div>
       <div class="sec-title">Teaching tools</div>
       <p class="sec-sub">Web-based tools developed to support in-class and executive education sessions on business sustainability strategy.</p>
-      <div class="grid-2">
-        <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px">
-          <div>
-            <div style="font-size:2.6rem;line-height:1;margin-bottom:10px">🐟</div>
-            <span class="pill pill-t">Simulation</span>
-            <h4 style="font-size:13px;font-weight:600;color:#1a5fa8;margin:8px 0 5px">SalmonRush — Sustainable Business Competition Simulation</h4>
-            <p style="font-size:12px;color:#555;line-height:1.6">A multi-round competitive simulation in which participants manage an open sea fishing business amid shifting market conditions and competitor strategies. Builds intuition for the tensions between short-term profit and long-run sustainability positioning.</p>
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
-            <a href="https://atalayatasu.github.io/salmonrush/" target="_blank" class="btn-p" style="display:inline-block;text-align:center;font-size:12px;padding:8px 16px;border-radius:4px">Launch simulation →</a>
-            <span style="font-size:10px;color:#aaa;letter-spacing:.2px">Powered by Acpit!</span>
-          </div>
-        </div>
-        <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px">
-          <div>
-            <div style="font-size:2.6rem;line-height:1;margin-bottom:10px">🧭&thinsp;<span style="font-size:1.5rem;vertical-align:middle">✨</span></div>
-            <span class="pill pill-g">Classroom Application</span>
-            <h4 style="font-size:13px;font-weight:600;color:#1a5fa8;margin:8px 0 5px">Sustainability Strategy Compass</h4>
-            <p style="font-size:12px;color:#555;line-height:1.6">An interactive compass grounded in the INSEAD Business Sustainability Programme framework. Helps executives map their firm's sustainability challenges across four strategic dimensions — societal, economic, regulatory, and investor-driven — and identify the most appropriate strategic response.</p>
-            <div class="note-green" style="margin-top:10px"><strong>AI-powered:</strong> an AI coach guides diagnosis and strategy selection; a consulting mode enables deeper scenario exploration; and AI-generated reports summarise findings for immediate use.</div>
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
-            <a href="https://atalayatasu.github.io/sustcomp/" target="_blank" class="btn-p" style="display:inline-block;text-align:center;font-size:12px;padding:8px 16px;border-radius:4px">Launch compass →</a>
-            <span style="font-size:10px;color:#aaa;letter-spacing:.2px">Powered by Acpit!</span>
-          </div>
-        </div>
-      </div>
+      <div class="tgrid c4"><div class="tc"><div class="tc-h" style="--c1:#0b5f7a;--c2:#2a9bbf"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-5 10-6 14 0-4 6-11 5-14 0z"/><path d="M17 12l4-3v6z"/><circle cx="8" cy="11" r=".6" fill="#fff"/></svg></span><div><div class="tc-k">Simulation</div><h4>SalmonRush</h4></div></div><div class="tc-b"><p>Participants manage competing open-sea fishing businesses amid shifting markets and rival strategies, and feel the tension between short-term profit and long-run sustainability.</p><div class="chips"><span>Multi-round</span><span>Shared resource</span><span>Competition</span></div><div class="tc-f"><a href="https://atalayatasu.github.io/salmonrush/" target="_blank" rel="noopener" class="go">Launch simulation →</a><span class="by">Powered by Acpit!</span></div></div></div><div class="tc"><div class="tc-h" style="--c1:#27500a;--c2:#5a9a2a"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><div><div class="tc-k">AI-powered app</div><h4>Sustainability Strategy Compass</h4></div></div><div class="tc-b"><p>Maps a firm’s sustainability challenges across societal, economic, regulatory and investor-driven dimensions and identifies the most appropriate strategic response.</p><div class="chips"><span>AI coach</span><span>Consulting mode</span><span>AI-generated reports</span></div><div class="tc-f"><a href="https://atalayatasu.github.io/sustcomp/" target="_blank" rel="noopener" class="go">Launch compass →</a><span class="by">Powered by Acpit!</span></div></div></div><div class="tc"><div class="tc-h" style="--c1:#085041;--c2:#1d9e75"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5"/><path d="M5 9v9M10 9v9M14 9v9M19 9v9"/><path d="M3 20h18"/></svg></span><div><div class="tc-k">Simulation</div><h4>The Lobbying Game</h4></div></div><div class="tc-b"><p>Five producer groups lobby a regulator on how to share the cost of recycling e-waste: they take positions, form pacts and place lobbying points; the instructor decides.</p><div class="chips"><span>Phone or laptop</span><span>Live projector board</span><span>Producer responsibility</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: regulation, the channel that swings most, in <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://bst-lobbying-game.onrender.com/play" target="_blank" rel="noopener" class="go">Join a game →</a></div></div></div><div class="tc"><div class="tc-h" style="--c1:#3c3489;--c2:#6a62c9"><span class="tc-i"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14-4.5"/><path d="M6 3v4h4"/><path d="M4 13a8 8 0 0 0 14 4.5"/><path d="M18 21v-4h-4"/></svg></span><div><div class="tc-k">AI-powered app</div><h4>VAP Circularity Assessment</h4></div></div><div class="tc-b"><p>AI-assisted circularity assessment of a firm’s product portfolio, built on the Value–Access–Process framework of “The Circular Business Model” (HBR): how much value remains in used products, how easily they come back, and how hard they are to reprocess.</p><div class="chips"><span>Product portfolio</span><span>Value · Access · Process</span><span>Circular business models</span></div><div class="tc-book"><svg viewBox="0 0 24 24" fill="none" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg><span>Book link: reinventing the business, in <a href="#" onclick="showPage('book');return false">The Ultimate Disruption</a>.</span></div><div class="tc-f"><a href="https://vap.onrender.com" target="_blank" rel="noopener" class="go">Launch tool →</a></div></div></div></div>
     </div>
   </div>
 
@@ -645,20 +686,6 @@ footer p{color:rgba(255,255,255,.4);font-size:12px}
       <div class="doc-row"><div><h5><a href="https://xr.insead.edu/experience/extreme-circularity-tilos" target="_blank" style="color:#1a5fa8">Georgina Grenon & Paris 2024 (A): The Leader and the Journey.</a></h5><p>INSEAD Publishing</p></div><a href="https://xr.insead.edu/experience/extreme-circularity-tilos" target="_blank">View →</a></div>
       <div class="doc-row"><div><h5><a href="https://xr.insead.edu/experience/extreme-circularity-tilos" target="_blank" style="color:#1a5fa8">Georgina Grenon & Paris 2024 (B): Fair Process Leadership</a></h5><p>INSEAD Publishing</p></div><a href="https://xr.insead.edu/experience/extreme-circularity-tilos" target="_blank">View →</a></div>
       <div class="doc-row"><div><h5><a href="https://xr.insead.edu/experience/extreme-circularity-tilos" target="_blank" style="color:#1a5fa8">Georgina Grenon & Apsys: Sustainability in the Board Room</a></h5><p>INSEAD Publishing</p></div><a href="https://xr.insead.edu/experience/extreme-circularity-tilos" target="_blank">View →</a></div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-  <!-- INSEAD COURSES -->
-  <div class="section">
-    <div class="section-inner">
-      <div class="sec-title">Current courses</div>
-      <div class="grid-3">
-        <div class="card"><span class="pill pill-b">GEMBA · MBA · MiM</span><h4 style="font-size:13px;font-weight:600;color:#1a5fa8;margin:8px 0 5px">Business Sustainability Thinking</h4><p style="font-size:12px;color:#555;line-height:1.5">Core sustainability strategy course. How business both creates and responds to environmental disruption.</p></div>
-        <div class="card"><span class="pill pill-t">MiM · Practical</span><h4 style="font-size:13px;font-weight:600;color:#1a5fa8;margin:8px 0 5px">Sustainability and Business Model Innovation</h4><p style="font-size:12px;color:#555;line-height:1.5">Practical course linking sustainability to business model redesign and circular economy strategy.</p></div>
-        <div class="card"><span class="pill pill-r">PhD</span><h4 style="font-size:13px;font-weight:600;color:#1a5fa8;margin:8px 0 5px">Operations Strategy</h4><p style="font-size:12px;color:#555;line-height:1.5">Doctoral seminar on research methods and frontiers in operations management.</p></div>
-        <div class="card"><span class="pill pill-a">Executive Education</span><h4 style="font-size:13px;font-weight:600;color:#1a5fa8;margin:8px 0 5px">INSEAD Business Sustainability Programme (IBSP)</h4><p style="font-size:12px;color:#555;line-height:1.5">Open executive programme equipping senior leaders with sustainability strategy frameworks. Programme Co-Director.</p></div>
-      </div>
     </div>
   </div>
 
