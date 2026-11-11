@@ -260,6 +260,13 @@ footer p{color:rgba(255,255,255,.75)}
 .skip{position:absolute;left:-9999px;top:8px;z-index:200;background:#fff;color:#0d3d6e;padding:8px 14px;border-radius:4px;font-weight:600}
 .skip:focus{left:12px}
 </style>
+<style id="studio-btn">
+.hero-btns{align-items:flex-start}
+.hero-cta{display:inline-grid;grid-template-columns:repeat(3,auto);gap:7px}
+.btn-studio,.btn-studio:visited{grid-column:1/-1;display:block;text-align:center;background:#90caf9;color:#0d3d6e;font-weight:600;font-size:12.5px;font-family:inherit;padding:9px 11px;border-radius:4px;text-decoration:none;transition:background .15s}
+.btn-studio:hover{background:#bbdefb}
+@media(max-width:600px){.hero-cta{display:flex;flex-wrap:wrap}.btn-studio{flex-basis:100%}}
+</style>
 </head>
 <body>
 
@@ -297,9 +304,12 @@ footer p{color:rgba(255,255,255,.75)}
         <div class="hero-chair">Bianca and James Pitt Endowed Chair in Environmental Sustainability<br>Academic Director, INSEAD Hoffmann Institute · PhD INSEAD, 2007</div>
         <p>Professor of Technology and Operations Management at INSEAD. Research spanning circular economy, extended producer responsibility, carbon management, and sustainable supply chains.</p>
         <div class="hero-btns">
+          <div class="hero-cta">
           <span class="btn-p" onclick="goSection('research','section-publications')">Publications</span>
           <span class="btn-p" onclick="goSection('media')">Practitioner Content</span>
           <span class="btn-p" onclick="goSection('teaching','section-tools')">Cases and Simulations</span>
+          <a class="btn-studio" href="studio/">Business Sustainability Teaching Studio</a>
+          </div>
           <a class="btn-o" href="https://www.insead.edu/faculty-research/faculty/atalay-atasu" target="_blank" rel="noopener" style="text-decoration:none">INSEAD Faculty Page ↗</a>
         </div>
 
