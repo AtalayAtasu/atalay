@@ -6,110 +6,142 @@
 <title>Sustainability Teaching Studio</title>
 <meta name="description" content="Sustainability Teaching Studio: course plans for faculty, 7 or 14 sessions built from ten modules, using INSEAD paper, live, AI and VR cases, simulations and webinars. Taught in person or digitally; each module can be embedded in an existing course.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap">
 <style>
-/* Layout: one reading column (~46rem), plain document structure; part colours only mark the left rule of each session and are always paired with a text label. */
+/* Layout: mirrors atalayatasu.github.io/atalay: blue nav and page hero, 1100px sections alternating #f4f7fb and white, white cards with #d6e6f6 borders, pastel pills for the four parts. Single light theme, as on the main site. */
 :root{
-  --bg:#FFFFFF; --surface:#F4F6F6; --ink:#16201F; --muted:#4A5754; --line:#C9D2CF;
-  --p1:#A33D27; --p2:#3F5179; --p3:#1F6B50; --p4:#7D5612; --focus:#1A56DB; --link:#1A4FBF;
-  --f:"IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --blue:#1a5fa8; --blue-d:#0d3d6e; --blue-l:#90caf9; --blue-xl:#e3f2fd;
+  --bg:#f4f7fb; --card:#ffffff; --line:#d6e6f6; --line2:#dce7f5;
+  --ink:#1a1a1a; --muted:#555555; --faint:#6b6b6b; --link:#1a5fa8; --focus:#0d47a1;
+  --f:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#121817; --surface:#1B2321; --ink:#E6ECEA; --muted:#B3C0BC; --line:#3A4744;
-  --p1:#F2937C; --p2:#A9BAE0; --p3:#7FD3B0; --p4:#E6BE6E; --focus:#8AB4FF; --link:#8DB8FF; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#121817; --surface:#1B2321; --ink:#E6ECEA; --muted:#B3C0BC; --line:#3A4744;
-  --p1:#F2937C; --p2:#A9BAE0; --p3:#7FD3B0; --p4:#E6BE6E; --focus:#8AB4FF; --link:#8DB8FF; color-scheme:dark}
-
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 img{max-width:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.6}
-.wrap{max-width:46rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3,h4{line-height:1.25;text-wrap:balance;margin:0}
-h1{font-size:32px;font-weight:700}
-h2{font-size:24px;font-weight:700}
-h3{font-size:19px;font-weight:700}
-h4{font-size:18px;font-weight:600}
-p{margin:0}
-a,a:visited{color:var(--link);text-decoration:underline;text-underline-offset:3px}
-a:hover{text-decoration-thickness:2px}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+.inner{max-width:1100px;margin:0 auto;padding-left:max(2rem,env(safe-area-inset-left,0px));padding-right:max(2rem,env(safe-area-inset-right,0px))}
+a,a:visited{color:var(--link);text-decoration:underline;text-decoration-color:#b3d1f0;text-underline-offset:3px}
+a:hover{text-decoration-color:var(--link)}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
-.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:var(--bg)!important;padding:8px 12px;z-index:30}
+.skip{position:absolute;left:16px;top:-60px;background:#fff;color:var(--blue-d)!important;padding:8px 12px;z-index:200;border-radius:4px}
 .skip:focus{top:calc(8px + env(safe-area-inset-top,0px))}
+h1,h2,h3,h4{text-wrap:balance}
 
-header{padding-block:40px 24px}
-header p{margin-top:12px}
-.bookbox{display:flex;gap:18px;align-items:center;margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-.bookbox p{margin:0}
+/* NAV (as main site) */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:110;background:var(--blue)}
+.nav{background:var(--blue);position:sticky;top:env(safe-area-inset-top,0px);z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.nav .inner{display:flex;align-items:center;justify-content:space-between;min-height:58px;gap:16px;flex-wrap:wrap}
+.nav-logo,.nav-logo:visited{color:#fff;font-size:15px;font-weight:600;letter-spacing:.2px;text-decoration:none}
+.nav-logo span{color:var(--blue-l);font-size:11px;display:block;font-weight:400;letter-spacing:.5px;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;list-style:none;flex-wrap:wrap}
+.nav-links a,.nav-links a:visited{color:rgba(255,255,255,.85);font-size:13px;padding:0 12px;min-height:58px;display:flex;align-items:center;border-bottom:2px solid transparent;text-decoration:none}
+.nav-links a:hover{color:#fff}
+.nav-links a[aria-current="page"]{color:#fff;border-bottom-color:var(--blue-l)}
+.nav :focus-visible,.phero :focus-visible{outline-color:#fff}
+
+/* PAGE HERO (as main site .phero) */
+.phero{background:var(--blue);padding-block:2.5rem 2.25rem;color:#fff}
+.bc{font-size:12px;color:rgba(255,255,255,.8);margin-bottom:.6rem}
+.bc a,.bc a:visited{color:#fff;text-decoration-color:rgba(255,255,255,.5)}
+.phero h1{font-size:26px;font-weight:600;color:#fff;margin-bottom:.6rem;line-height:1.25}
+.phero p{font-size:14.5px;color:rgba(255,255,255,.9);max-width:720px;line-height:1.75}
+.phero p + p{margin-top:.6rem}
+.phero p a,.phero p a:visited{color:#fff;text-decoration-color:rgba(255,255,255,.6)}
+.bookbox{display:flex;gap:18px;align-items:center;margin-top:1.4rem;max-width:760px;background:#fff;color:var(--ink);border-radius:10px;padding:1rem 1.25rem}
+.bookbox p{color:var(--ink)!important;font-size:14px!important;line-height:1.65!important;margin:0}
+.bookbox p a,.bookbox p a:visited{color:var(--link)!important;text-decoration-color:#b3d1f0!important}
 .bookbox .cover{flex:none;display:block;line-height:0;border-radius:3px}
-.bookbox .cover img{width:96px;height:auto;border-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .15s}
-.bookbox .cover:hover img{transform:translateY(-2px)}
+.bookbox .cover img{width:88px;height:auto;border-radius:3px;box-shadow:0 6px 16px rgba(0,0,0,.3);transition:transform .2s}
+.bookbox .cover:hover img{transform:translateY(-3px)}
+.bookbox :focus-visible{outline-color:var(--focus)}
 @media (prefers-reduced-motion:reduce){.bookbox .cover img{transition:none}.bookbox .cover:hover img{transform:none}}
-@media (max-width:420px){.bookbox .cover img{width:72px}}
-nav ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:16px}
-main > section{padding-block:28px;border-top:1px solid var(--line)}
-section > h2 + *{margin-top:12px}
-section p + p, section p + ul, section p + .tbl, section .tbl + p, section ul + p{margin-top:12px}
 
-.tbl{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:16px}
-th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
-th{font-weight:600}
+/* ON-THIS-PAGE BAR */
+.subnav{background:#fff;border-bottom:1px solid var(--line2)}
+.subnav ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 20px;padding-block:.75rem;font-size:13.5px}
+.subnav a,.subnav a:visited{text-decoration:none;color:var(--blue);font-weight:500}
+.subnav a:hover{text-decoration:underline}
+
+/* SECTIONS */
+.section{padding-block:2.75rem}
+.section-alt{background:#fff}
+.sec-tag{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);margin-bottom:.4rem}
+.sec-title{font-size:20px;font-weight:600;margin-bottom:.6rem;color:var(--blue)}
+.sec-sub{font-size:14px;color:var(--muted);line-height:1.7;max-width:720px}
+.sec-sub + .sec-sub{margin-top:.6rem}
+.section .tbl + .sec-sub{margin-top:1rem}
+
+.tbl{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:10px;margin-top:1.25rem}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line2)}
+tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--blue-d);background:var(--blue-xl)}
 td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
 
-fieldset{border:0;padding:0;margin:0}
-legend{font-weight:600;padding:0;margin-bottom:6px}
-.opts{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+/* CONTROLS */
+fieldset{border:0}
+legend{font-weight:600;font-size:14px;margin-bottom:8px;color:var(--ink)}
+.opts{display:grid;gap:1.25rem;margin-top:1.25rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.25rem}
 .radios{display:flex;flex-wrap:wrap;gap:8px}
 .radios input{position:absolute;opacity:0;width:1px;height:1px}
-.radios label{display:inline-block;border:1px solid var(--ink);border-radius:6px;padding:6px 14px;cursor:pointer;font-size:16px;background:var(--bg)}
-.radios input:checked + label{background:var(--ink);color:var(--bg)}
-.radios input:checked + label::before{content:"✓ ";}
+.radios label{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);border-radius:4px;padding:7px 16px;cursor:pointer;font-size:13.5px;font-weight:500;background:#fff}
+.radios label:hover{background:var(--blue-xl)}
+.radios input:checked + label{background:var(--blue);color:#fff}
+.radios input:checked + label::before{content:"✓ "}
 .radios input:focus-visible + label{outline:3px solid var(--focus);outline-offset:2px}
-.checks{display:flex;flex-direction:column;gap:6px}
-.checks label{display:flex;gap:10px;align-items:flex-start;font-size:16px;cursor:pointer}
-.checks input{width:20px;height:20px;margin:3px 0 0;flex:none;accent-color:var(--ink)}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.checks input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--blue)}
 .checks input:disabled + span{color:var(--muted)}
-.hint{font-size:15px;color:var(--muted);margin-top:4px}
-.count{font-weight:600;margin-top:8px}
-button.act{font:600 16px var(--f);border:1px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:6px;padding:7px 16px;cursor:pointer}
-button.act:hover{background:var(--surface)}
+.hint{font-size:13px;color:var(--muted);margin-bottom:8px;max-width:720px}
+#mode-hint{margin:8px 0 0}
+.count{font-weight:600;margin-top:10px;font-size:14px;color:var(--blue-d)}
+button.act{font:600 13.5px var(--f);background:var(--blue-l);color:var(--blue-d);border:0;border-radius:4px;padding:10px 20px;cursor:pointer}
+button.act:hover{background:#bbdefb}
 
-ol.plan{list-style:none;padding:0;margin:0}
-.part{margin-top:28px;padding-bottom:4px;border-bottom:2px solid var(--pc)}
-.modbox{margin-top:14px;padding:12px 18px 18px;border-radius:8px;background:color-mix(in srgb,var(--pc) 8%,var(--bg));border:1px solid color-mix(in srgb,var(--pc) 35%,var(--bg))}
-.modlabel{font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--pc)}
-li.sess{padding-top:4px;margin-top:12px}
-li.sess + li.sess{border-top:1px solid color-mix(in srgb,var(--pc) 35%,var(--bg));padding-top:16px;margin-top:16px}
-.sess h4 .no{font-variant-numeric:tabular-nums}
-dl{margin:10px 0 0;display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:6px 14px;font-size:16px}
+/* PLAN */
+ol.plan{list-style:none}
+.part{margin-top:2rem;padding-bottom:6px;border-bottom:2px solid var(--pbd);color:var(--pc);font-size:16px;font-weight:600}
+.modbox{margin-top:14px;padding:14px 20px 20px;border-radius:10px;background:var(--pbg);border:1px solid var(--pbd)}
+.modlabel{font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--pc)}
+li.sess{margin-top:10px;background:#fff;border:1px solid var(--pbd);border-radius:8px;padding:14px 18px}
+.sess h4{font-size:16px;font-weight:600;color:var(--ink)}
+.sess h4 .no{font-variant-numeric:tabular-nums;color:var(--pc)}
+dl{margin-top:10px;display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:6px 14px;font-size:14px}
 dt{font-weight:600;color:var(--muted)}
-dd{margin:0;min-width:0}
-dd ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
-.fmt{font-size:14px;color:var(--muted);white-space:nowrap}
+dd{min-width:0}
+dd ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.fmt{font-size:12.5px;color:var(--muted);white-space:nowrap}
 
-ul.lib,ul.reading{list-style:none;padding:0;margin:16px 0 0}
-ul.lib li,ul.reading li{padding-block:10px;border-bottom:1px solid var(--line);font-size:16px}
-ul.lib .meta,ul.reading .meta{display:block;font-size:15px;color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.chip{font-size:14px;line-height:1.3;padding:2px 9px;border-radius:999px;color:var(--ink);background:color-mix(in srgb,var(--pc) 10%,var(--bg));border:1px solid color-mix(in srgb,var(--pc) 45%,var(--bg))}
-.chip::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pc);margin-right:6px;vertical-align:1px}
-.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
-.contact code{font-family:inherit;font-size:16px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:5px 10px;user-select:all}
-textarea#fallback{width:100%;height:14rem;margin-top:8px;font:15px/1.5 var(--f);background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:10px}
-footer{padding-block:24px 40px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+/* LISTS (as main site pub rows) */
+ul.lib,ul.reading{list-style:none;margin-top:1.25rem;display:grid;gap:7px}
+ul.lib li,ul.reading li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px;font-size:14px;transition:border-color .15s}
+ul.lib li:hover,ul.reading li:hover{border-color:var(--blue-l)}
+ul.lib .meta,ul.reading .meta{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+#filters{margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chip{display:inline-block;border-radius:20px;font-size:12px;padding:2px 10px;background:var(--pbg);color:var(--pc);border:1px solid var(--pbd)}
 
-@media (max-width:560px){
-  h1{font-size:27px}
+/* ACCESS */
+.access{list-style:none;margin-top:1rem;display:grid;gap:8px;max-width:820px}
+.access li{background:var(--blue-xl);border-left:3px solid var(--blue-l);border-radius:0 6px 6px 0;padding:.85rem 1rem;font-size:14px;color:var(--blue-d);line-height:1.6}
+.contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:1.25rem;font-size:14px}
+.contact code{font-family:inherit;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:6px 10px;user-select:all}
+textarea#fallback{width:100%;height:14rem;margin-top:8px;font:14px/1.5 var(--f);background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:10px}
+footer{background:var(--blue);color:rgba(255,255,255,.85);font-size:12.5px;padding-block:1.5rem}
+
+@media (max-width:700px){
+  .inner{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .checks{grid-template-columns:1fr}
   dl{grid-template-columns:1fr;gap:2px}
-  .modbox{padding:10px 12px 14px}
   dd{margin-bottom:8px}
+  .modbox{padding:12px 12px 14px}
+  li.sess{padding:12px 14px}
+  .phero h1{font-size:22px}
+  .bookbox{align-items:flex-start}
+  .bookbox .cover img{width:68px}
 }
 </style>
 </head>
@@ -117,17 +149,31 @@ footer{padding-block:24px 40px;border-top:1px solid var(--line);font-size:15px;c
 
 <a class="skip" href="#plan">Skip to course plan</a>
 
-<div class="wrap">
-<header>
-  <p style="margin:0 0 16px;font-size:15px"><a href="../">← Atalay Atasu, INSEAD</a></p>
-  <h1>Sustainability Teaching Studio</h1>
-  <p>Course plans of 7 or 14 sessions for a sustainability course built on INSEAD cases. Each plan can be taught in person or digitally. Most cases exist as a paper case and as a live, AI or VR version.</p>
-  <p>The course is research-driven. Its cases, simulations and frameworks come from a research programme on sustainable operations, circularity and environmental regulation, presented in the <a href="https://atalayatasu.github.io/atalay/keynote-academic.html" target="_blank" rel="noopener">academic keynote<span class="vh"> (opens in new tab)</span></a>.</p>
-  <div class="bookbox">
+<nav class="nav" aria-label="Main">
+  <div class="inner">
+    <a class="nav-logo" href="https://atalayatasu.github.io/atalay/">Atalay Atasu<span>Professor · INSEAD Technology &amp; Operations Management</span></a>
+    <ul class="nav-links">
+      <li><a href="https://atalayatasu.github.io/atalay/">Home</a></li>
+      <li><a href="https://atalayatasu.github.io/atalay/studio/" aria-current="page">Teaching Studio</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="inner">
+    <p class="bc"><a href="https://atalayatasu.github.io/atalay/">Home</a> / Teaching Studio</p>
+    <h1>Sustainability Teaching Studio</h1>
+    <p>Course plans of 7 or 14 sessions for a sustainability course built on INSEAD cases. Each plan can be taught in person or digitally. Most cases exist as a paper case and as a live, AI or VR version.</p>
+    <p>The course is research-driven. Its cases, simulations and frameworks come from a research programme on sustainable operations, circularity and environmental regulation, presented in the <a href="https://atalayatasu.github.io/atalay/keynote-academic.html" target="_blank" rel="noopener">academic keynote<span class="vh"> (opens in new tab)</span></a>.</p>
+    <div class="bookbox">
     <a class="cover" href="https://atalayatasu.github.io/atalay/" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,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" width="96" height="144" alt="The Ultimate Disruption, book cover"><span class="vh"> (opens book page in new tab)</span></a>
     <p><a href="https://atalayatasu.github.io/atalay/" target="_blank" rel="noopener"><cite>The Ultimate Disruption</cite><span class="vh"> (opens in new tab)</span></a> puts together the ideas in this course (commons, regulation, decarbonization, circularity, assessment, valuation and governance) and extends them in a compelling format. Assign it as background for any plan. <a href="https://atalayatasu.github.io/atalay/" target="_blank" rel="noopener">Book page<span class="vh"> (opens in new tab)</span></a></p>
+    </div>
   </div>
-  <nav aria-label="On this page">
+</header>
+
+<nav class="subnav" aria-label="On this page">
+  <div class="inner">
     <ul>
       <li><a href="#structure">Structure</a></li>
       <li><a href="#plan">Course plan</a></li>
@@ -135,87 +181,98 @@ footer{padding-block:24px 40px;border-top:1px solid var(--line);font-size:15px;c
       <li><a href="#readings">Readings</a></li>
       <li><a href="#access">Access</a></li>
     </ul>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <main>
-<section id="structure" aria-labelledby="h-structure">
-  <h2 id="h-structure">Structure</h2>
-  <p>The course is built from ten modules in four parts. Circularity follows decarbonization because renewable energy raises demand for materials (solar panels, wind turbines, batteries) and creates new end-of-life waste.</p>
-  <div class="tbl" role="region" aria-labelledby="h-structure" tabindex="0">
-  <table>
-    <thead><tr><th scope="col">Part</th><th scope="col">Module</th><th scope="col">Main cases</th><th scope="col">Sessions in 14-session plan</th></tr></thead>
-    <tbody id="structOut"></tbody>
-  </table>
+<section class="section section-alt" id="structure" aria-labelledby="h-structure">
+  <div class="inner">
+    <p class="sec-tag">Overview</p>
+    <h2 class="sec-title" id="h-structure">Structure</h2>
+    <p class="sec-sub">The course is built from ten modules in four parts. Circularity follows decarbonization because renewable energy raises demand for materials (solar panels, wind turbines, batteries) and creates new end-of-life waste.</p>
+    <div class="tbl" role="region" aria-labelledby="h-structure" tabindex="0">
+    <table>
+      <thead><tr><th scope="col">Part</th><th scope="col">Module</th><th scope="col">Main cases</th><th scope="col">Sessions in 14-session plan</th></tr></thead>
+      <tbody id="structOut"></tbody>
+    </table>
+    </div>
+    <p class="sec-sub">7-session plan: choose 7 of the 10 modules, one session each. Commons and Economics of circularity are required. 14-session plan: all ten modules; four of them run over two sessions.</p>
+    <p class="sec-sub">Each module, and each session within it, also works on its own and can be embedded in an existing course, for example in strategy, operations, finance or leadership.</p>
   </div>
-  <p>7-session plan: choose 7 of the 10 modules, one session each. Commons and Economics of circularity are required. 14-session plan: all ten modules; four of them run over two sessions.</p>
-  <p>Each module, and each session within it, also works on its own and can be embedded in an existing course, for example in strategy, operations, finance or leadership.</p>
 </section>
 
-<section id="plan" aria-labelledby="h-plan">
-  <h2 id="h-plan">Course plan</h2>
-  <p>Choose the options below. The plan updates on this page.</p>
-  <div class="opts">
-    <fieldset>
-      <legend>Length</legend>
-      <div class="radios">
-        <input type="radio" name="len" id="len7" value="7"><label for="len7">7 sessions</label>
-        <input type="radio" name="len" id="len14" value="14"><label for="len14">14 sessions</label>
-      </div>
-    </fieldset>
-    <fieldset id="pickBox" aria-describedby="pick-hint">
-      <legend>Modules for the 7-session plan</legend>
-      <p class="hint" id="pick-hint">Choose 7. Required modules cannot be cleared. Sessions run in the order listed.</p>
-      <div class="checks" id="pickOut"></div>
-      <p class="count" id="pickCount"></p>
-    </fieldset>
-    <fieldset aria-describedby="mode-hint">
-      <legend>Delivery</legend>
-      <div class="radios">
-        <input type="radio" name="mode" id="modeP" value="person"><label for="modeP">In person</label>
-        <input type="radio" name="mode" id="modeD" value="digital"><label for="modeD">Digital</label>
-      </div>
-      <p class="hint" id="mode-hint">In person: the paper case is used in class, and its digital version (live, AI or VR case) is recommended as an assignment before or after class. Digital: the live or AI case is used in class; the paper case becomes pre-reading. Sessions without a digital version keep the paper case.</p>
-    </fieldset>
-    <div><button class="act" id="copyBtn" type="button">Copy plan as text</button></div>
+<section class="section" id="plan" aria-labelledby="h-plan">
+  <div class="inner">
+    <p class="sec-tag">Plan builder</p>
+    <h2 class="sec-title" id="h-plan">Course plan</h2>
+    <p class="sec-sub">Choose the options below. The plan updates on this page.</p>
+    <div class="opts">
+      <fieldset>
+        <legend>Length</legend>
+        <div class="radios">
+          <input type="radio" name="len" id="len7" value="7"><label for="len7">7 sessions</label>
+          <input type="radio" name="len" id="len14" value="14"><label for="len14">14 sessions</label>
+        </div>
+      </fieldset>
+      <fieldset id="pickBox" aria-describedby="pick-hint">
+        <legend>Modules for the 7-session plan</legend>
+        <p class="hint" id="pick-hint">Choose 7. Required modules cannot be cleared. Sessions run in the order listed.</p>
+        <div class="checks" id="pickOut"></div>
+        <p class="count" id="pickCount"></p>
+      </fieldset>
+      <fieldset aria-describedby="mode-hint">
+        <legend>Delivery</legend>
+        <div class="radios">
+          <input type="radio" name="mode" id="modeP" value="person"><label for="modeP">In person</label>
+          <input type="radio" name="mode" id="modeD" value="digital"><label for="modeD">Digital</label>
+        </div>
+        <p class="hint" id="mode-hint">In person: the paper case is used in class, and its digital version (live, AI or VR case) is recommended as an assignment before or after class. Digital: the live or AI case is used in class; the paper case becomes pre-reading. Sessions without a digital version keep the paper case.</p>
+      </fieldset>
+      <div><button class="act" id="copyBtn" type="button">Copy plan as text</button></div>
+    </div>
+    <p id="status" role="status" class="vh"></p>
+    <div id="fallbackBox"></div>
+    <div id="planOut"></div>
   </div>
-  <p id="status" role="status" class="vh"></p>
-  <div id="fallbackBox"></div>
-  <div id="planOut"></div>
 </section>
 
-<section id="cases" aria-labelledby="h-cases">
-  <h2 id="h-cases">Cases and videos</h2>
-  <p>Newest first. “Paired with” names the paper or digital version of the same case.</p>
-  <fieldset style="margin-top:12px">
-    <legend>Show</legend>
-    <div class="radios" id="filters"></div>
-  </fieldset>
-  <ul class="lib" id="libOut"></ul>
+<section class="section section-alt" id="cases" aria-labelledby="h-cases">
+  <div class="inner">
+    <p class="sec-tag">Library</p>
+    <h2 class="sec-title" id="h-cases">Cases and videos</h2>
+    <p class="sec-sub">Newest first. “Paired with” names the paper or digital version of the same case.</p>
+    <fieldset style="margin-top:1rem">
+      <legend>Show</legend>
+      <div class="radios" id="filters"></div>
+    </fieldset>
+    <ul class="lib" id="libOut"></ul>
+  </div>
 </section>
 
-<section id="readings" aria-labelledby="h-readings">
-  <h2 id="h-readings">Readings</h2>
-  <p>Articles and practitioner pieces by the author, newest first, with the module that uses each one.</p>
-  <ul class="reading" id="readOut"></ul>
+<section class="section" id="readings" aria-labelledby="h-readings">
+  <div class="inner">
+    <p class="sec-tag">Practitioner content</p>
+    <h2 class="sec-title" id="h-readings">Readings</h2>
+    <p class="sec-sub">Articles and practitioner pieces by the author, newest first, with the module that uses each one.</p>
+    <ul class="reading" id="readOut"></ul>
+  </div>
 </section>
 
-<section id="access" aria-labelledby="h-access">
-  <h2 id="h-access">Access</h2>
-  <ul>
-    <li>Paper cases, LearnAI cases and Alpha live cases: INSEAD Publishing (teaching notes for registered faculty).</li>
-    <li>Alpha 2: Harvard Business Publishing.</li>
-    <li>Extreme Circularity in Tilos (VR): INSEAD Immersive Solutions.</li>
-    <li>Webinars and panels: INSEAD's YouTube channel (free).</li>
-    <li><a href="https://atalayatasu.github.io/salmonrush/" target="_blank" rel="noopener">Salmon Rush simulation<span class="vh"> (opens in new tab)</span></a> and <a href="https://bst-lobbying-game.onrender.com/play" target="_blank" rel="noopener">The Lobbying Game<span class="vh"> (opens in new tab)</span></a>: online, linked from the author's website. Instructor access on request.</li>
-    <li>Slides: on request from the author.</li>
-  </ul>
-  <div class="contact"><span>Contact:</span><code id="mail">atalay.atasu@insead.edu</code><button class="act" id="copyMail" type="button">Copy address</button></div>
+<section class="section section-alt" id="access" aria-labelledby="h-access">
+  <div class="inner">
+    <p class="sec-tag">For instructors</p>
+    <h2 class="sec-title" id="h-access">Access</h2>
+    <ul class="access">
+      <li>Cases: all cases are available through INSEAD Publishing, LearnAI, LiveCase or Harvard Business Publishing. Almost all have teaching notes, and some come with slides; both are available to faculty through the publishers.</li>
+      <li>Webinars and panels: INSEAD's YouTube channel (free).</li>
+      <li><a href="https://atalayatasu.github.io/salmonrush/" target="_blank" rel="noopener">Salmon Rush simulation<span class="vh"> (opens in new tab)</span></a> and <a href="https://bst-lobbying-game.onrender.com/play" target="_blank" rel="noopener">The Lobbying Game<span class="vh"> (opens in new tab)</span></a>: online, linked from the author's website. Instructor access on request.</li>
+    </ul>
+    <div class="contact"><span>Contact:</span><code id="mail">atalay.atasu@insead.edu</code><button class="act" id="copyMail" type="button">Copy address</button></div>
+  </div>
 </section>
 </main>
 
-<footer>Links to INSEAD Publishing, Harvard Business Publishing, INSEAD Immersive Solutions, YouTube and article publishers open in a new tab.</footer>
-</div>
+<footer><div class="inner">Links to INSEAD Publishing, Harvard Business Publishing, INSEAD Immersive Solutions, YouTube and article publishers open in a new tab.</div></footer>
 
 <script>
 document.documentElement.lang = "en";
@@ -245,6 +302,13 @@ const CASES = {
   apsys:{t:"Georgina Grenon & Apsys: Sustainability in the Board Room",y:2026,k:"paper",twin:"rivelle",soon:"Forthcoming with INSEAD Publishing."},
   frostline:{t:"LearnAI: Frostline, The Cold Truth of Circularity",y:2026,k:"ai",d:"Immersive AI case.",u:"https://publishing.insead.edu/immersive-ai-case/learn-ai-frostline-cold-truth-circularity"},
   rivelle:{t:"LearnAI: Governing Sustainability, The Competing Paths to Long-Term Value",y:2026,k:"ai",d:"Immersive AI case.",u:"https://publishing.insead.edu/immersive-ai-case/learnai-governing-sustainability-competing-paths-long-term-value"},
+  owlsChapter:{t:"Owls, Sheep and Dodos: Coping with Environmental Legislation",y:2016,by:"Atasu, Van Wassenhove and Webber, in Environmentally Responsible Supply Chains (Springer)",k:"chapter",u:"https://link.springer.com/chapter/10.1007/978-3-319-30094-8_11"},
+  webStrategic:{t:"Sustainability as a Strategic Opportunity",y:2023,k:"webinar",d:"Karel Cool with Georgina Grenon (Paris 2024) and Stéphane Germain (GHGSat). INSEAD Business Sustainability Series, 26 April 2023.",u:"https://www.youtube.com/watch?v=Gt9zk5nxg4Y"},
+  webWorld:{t:"Sustainability around the World: Trends, Impact, and Opportunities",y:2023,k:"webinar",d:"With Jared Koh (Singapore EDB), Aron Cramer (BSR), Eunice Sampson (EY), Elisa Dierickx and Patricia Ellen da Silva (SYSTEMIQ). INSEAD Business Sustainability Series, 8 June 2023.",u:"https://www.youtube.com/watch?v=tfElCYw4nP8"},
+  webProduct:{t:"Product Innovation and Development for Sustainable Business",y:2023,k:"webinar",d:"Karel Cool with Paul Manwell (TC Labs), Vidya Sarma (Meta), Arnold van den Berg (Eastman), Nanna Aage Lundsgaard (Danfoss). INSEAD Business Sustainability Series, 26 October 2023.",u:"https://www.youtube.com/watch?v=nCV9MDHZL34"},
+  webSatellite:{t:"Satellite and IoT Technology as Accelerators of Business Sustainability",y:2024,k:"webinar",d:"Karel Cool with Zach Brown (Creattura), Koen Verweyen (Aquarius Spectrum), Stéphane Germain (GHGSat). INSEAD Business Sustainability Series, 13 June 2024.",u:"https://www.youtube.com/watch?v=H8cuG9dyLVA"},
+  webMaterials:{t:"New Materials as Accelerators of Business Sustainability",y:2024,k:"webinar",d:"With Michel Van Hoey (McKinsey), Molly Morse (Mango Materials), Bates Marshall (Ambient Photonics), Mark van Nieuwland (Bovaer, dsm-firmenich). INSEAD Business Sustainability Series, 12 September 2024.",u:"https://www.youtube.com/watch?v=aHYYp--1g6E"},
+  webAI:{t:"AI and GenAI as Accelerators of Business Sustainability",y:2024,k:"webinar",d:"Karel Cool and Peter Zemsky with Kaixiang Lin (Chemix) and Paul Manwell (TC Labs). INSEAD Business Sustainability Series, 10 October 2024.",u:"https://www.youtube.com/watch?v=NAZP267vWcs"},
   webFashion:{t:"Circular Fashion: Accelerating New Business Models for Circular Growth",y:2022,k:"webinar",d:"Panel with Christiane Dolva Törnberg (H&M Foundation), Josefine Olsson (Accenture), Annie Gullingsrud (EON) and Atalay Atasu. INSEAD Tech Talk X, 23 June 2022.",u:"https://www.youtube.com/watch?v=YDCLFUEM2_w"},
   webDavos:{t:"Renewable Energy, Scarcity and Circularity: A Path to Net Zero",y:2022,k:"webinar",d:"Panel led by Atalay Atasu at Davos 2022: scarcity, circularity, Paris 2024, rebound effects.",u:"https://www.youtube.com/watch?v=8McN0V2l8uE"},
   webEcovadis:{t:"Building a Sustainability Inspired Business: The Case of EcoVadis",y:2023,k:"webinar",d:"Karel Cool and Atalay Atasu with the EcoVadis founders. INSEAD, 28 September 2023.",u:"https://www.youtube.com/watch?v=YKI7QSWFYMg"},
@@ -253,7 +317,7 @@ const CASES = {
   webBIC:{t:"Sustainability in Turbulent Times: Circularity and Growth at BIC Lighter",y:2026,k:"webinar",d:"Karel Cool and Atalay Atasu with François Clément-Grandcourt, General Manager, BIC Lighter Division. INSEAD, 2026.",u:"https://www.youtube.com/watch?v=LgvBWkhbFtc"},
   webAuto:{t:"Business Sustainability in Turbulent Times: Circularity and Growth in the Automotive Industry",y:2026,k:"webinar",d:"With Bart De Groof (Axalta), Marco Iriarte (Solera), Edward Reinderts (ABS Autoherstel). INSEAD, 23 April 2026.",u:"https://www.youtube.com/watch?v=J93hpvHnHLY"}
 };
-const KIND = {paper:"Paper case",live:"Live case",ai:"AI case",vr:"VR case",webinar:"Webinar",game:"Simulation",note:"Background note"};
+const KIND = {paper:"Paper case",live:"Live / AI case",ai:"Live / AI case",chapter:"Book chapter",vr:"VR case",webinar:"Webinar",game:"Simulation",note:"Background note"};
 
 const ART = {
   econ:{t:"The Economics of Sustainability",o:"INSEAD Knowledge",y:2025,u:"https://knowledge.insead.edu/strategy/economics-sustainability"},
@@ -281,29 +345,29 @@ const ART = {
 };
 
 const PARTS = {
-  p1:{t:"Part 1. Commons",c:"var(--p1)"},
-  p2:{t:"Part 2. Decarbonization and regulation",c:"var(--p2)"},
-  p3:{t:"Part 3. Circularity",c:"var(--p3)"},
-  p4:{t:"Part 4. Assessment, valuation and governance",c:"var(--p4)"}
+  p1:{t:"Part 1. Commons",c:"#791f1f;--pbg:#fcebeb;--pbd:#f7c1c1"},
+  p2:{t:"Part 2. Decarbonization and regulation",c:"#0d47a1;--pbg:#e3f2fd;--pbd:#90caf9"},
+  p3:{t:"Part 3. Circularity",c:"#085041;--pbg:#e1f5ee;--pbd:#9fe1cb"},
+  p4:{t:"Part 4. Assessment, valuation and governance",c:"#633806;--pbg:#faeeda;--pbd:#fac775"}
 };
 
 /* Session templates. paper/digital = the two versions of the main case; pre = pre-reading in both modes; extra = additional case reading; media = webinars; alt = alternatives; read = articles; tud = topic in The Ultimate Disruption */
 const S = {
-  salmon:{t:"Tragedy of the commons",q:"What happens to a shared resource when each team maximises its own catch?",paper:null,digital:"salmon",read:["econ","smrCase"],tud:"Sustainability as a disruption",topics:"Common-pool resources; overharvesting; role of information and regulation."},
-  schneider:{t:"Net-zero roadmap",q:"What does a multi-decade net-zero roadmap look like in a global industrial group?",paper:"schneider",extra:["insead"],read:["ghg","davos"],tud:"Decarbonizing operations and value chains",topics:"Scopes 1–3; target setting; abatement levers; sequencing; supplier programmes; incentives. The INSEAD case shows the same steps in a smaller organisation."},
+  salmon:{t:"Tragedy of the commons",q:"What happens to a shared resource when each team maximises its own catch?",paper:null,digital:"salmon",read:["econ","smrCase"],tud:"Sustainability as a disruption",media:["webWorld"],topics:"Common-pool resources; overharvesting; role of information and regulation."},
+  schneider:{t:"Net-zero roadmap",q:"What does a multi-decade net-zero roadmap look like in a global industrial group?",paper:"schneider",extra:["insead"],media:["webSatellite"],read:["ghg","davos"],tud:"Decarbonizing operations and value chains",topics:"Scopes 1–3; target setting; abatement levers; sequencing; supplier programmes; incentives. The INSEAD case shows the same steps in a smaller organisation."},
   ecovadis:{t:"Scope 3 and supplier ratings: EcoVadis",q:"Can a ratings market improve sustainability across thousands of suppliers, and what makes the platform scale?",paper:"ecovadis",media:["webEcovadis"],read:["stake"],tud:"Reaching Scope 3",topics:"Supplier assessment and scorecards; buyer use of ratings; platform business model; network effects; competition among raters. Suggested flow: case discussion, then excerpts from the webinar with the founders."},
-  reg:{t:"Regulation: owls, sheep and dodos",q:"How are environmental rules made, who pays for recycling, and how should a firm respond?",paper:null,digital:"lobby",pre:["owl"],read:["owlK","erp"],tud:"Regulation, the channel that swings most",topics:"Extended producer responsibility; sharing the cost of recycling; lobbying and coalitions; owls, sheep and dodos: anticipating regulation versus reacting to it. Complements Salmon Rush: the commons game shows why rules are needed; this session shows how they are made."},
-  malta:{t:"Economics of circularity",q:"Who pays to close the loop, and when does recycling pay?",paper:"malta",digital:"alpha1",media:["webDavos"],read:["solar","minerals","realism"],tud:"Why circularity follows decarbonization; the economics of closing the loop",topics:"Material demands of renewables; collection cost; material value; deposit return; extended producer responsibility."},
+  reg:{t:"Regulation: owls, sheep and dodos",q:"How are environmental rules made, who pays for recycling, and how should a firm respond?",paper:null,digital:"lobby",pre:["owlsChapter"],post:["owl"],media:["webRegional"],read:["owlK","erp"],tud:"Regulation, the channel that swings most",topics:"Extended producer responsibility; sharing the cost of recycling; lobbying and coalitions; owls, sheep and dodos: anticipating regulation versus reacting to it. Complements Salmon Rush: the commons game shows why rules are needed; this session shows how they are made."},
+  malta:{t:"Economics of circularity",q:"Who pays to close the loop, and when does recycling pay?",paper:"malta",digital:"alpha1",media:["webDavos","webMaterials"],read:["solar","minerals","realism"],tud:"Why circularity follows decarbonization; the economics of closing the loop",topics:"Material demands of renewables; collection cost; material value; deposit return; extended producer responsibility."},
   vhs:{t:"Designing for circularity",q:"How do you redesign a product that was never designed to be recovered?",paper:"vhs",media:["webBIC"],read:["cbm","r2r"],tud:"Designing for circularity",topics:"Design for disassembly and reuse; circular business models; BIC Lighter as a current example."},
   jeans:{t:"Redesigning product and process",q:"Can a mass-market product be made with less water, energy and chemicals and stay competitive?",paper:"jeans",media:["webFashion"],read:["cbm","euCirc"],tud:"Designing for circularity",topics:"Process redesign; resource use; resale, rental and repair in fashion; value capture along the supply chain."},
   zirq:{t:"Circular ecosystems and reverse logistics",q:"Why would competitors collaborate to collect and recycle their products?",paper:"zirq",digital:"alpha3",media:["webAuto"],alt:["cycleon"],read:["obstacles","realism"],tud:"Circular ecosystems",topics:"Reverse logistics; shared collection infrastructure; coordination between firms; repair networks."},
   tilos:{t:"Zero-waste system: Tilos",q:"What does it take to remove waste from a whole system, and who has to cooperate?",paper:"tilos",digital:"tilosVR",read:["tilosR","cbm"],tud:"Zero waste in practice",topics:"Door-to-door collection; transparency; local trust; transferability to cities and firms."},
   lca:{t:"Assessment: is circular actually greener?",q:"Is the circular option better for the environment, and how would you know?",paper:"alfonso",digital:"frostline",read:["devil","giants"],tud:"Life cycle thinking",topics:"Life cycle assessment; functional unit; system boundaries; use phase; cases where the circular option has higher impact."},
-  npv:{t:"Corporate valuation with NPV+",q:"How do you value a sustainability initiative that fails a conventional NPV test?",paper:"smcp",digital:"alpha2",media:["webConsigli"],read:["smrCase","aiProfit"],tud:"The business case",topics:"NPV+; risk, revenue, talent and cost-of-capital effects."},
+  npv:{t:"Corporate valuation with NPV+",q:"How do you value a sustainability initiative that fails a conventional NPV test?",paper:"smcp",digital:"alpha2",media:["webConsigli","webAI"],read:["smrCase","aiProfit"],tud:"The business case",topics:"NPV+; risk, revenue, talent and cost-of-capital effects."},
   ambienta:{t:"Investor valuation: Ambienta",q:"How does an investor price environmental impact into equity decisions?",paper:"ambA",also:["ambB"],read:["econ","stake"],tud:"Sources of value in sustainability",topics:"Impact versus financial return; environmental-solutions investing; impact-driven equity decisions in Ambienta (B)."},
-  ggA:{t:"Leading the journey: Paris 2024",q:"How does a leader take an organisation through a sustainability change it did not ask for?",paper:"ggA",read:["parisSmr","parisK"],tud:"Leading change against a deadline",topics:"Carbon budget for the Games; reuse and temporary venues; the leader's journey."},
+  ggA:{t:"Leading the journey: Paris 2024",q:"How does a leader take an organisation through a sustainability change it did not ask for?",paper:"ggA",media:["webStrategic"],read:["parisSmr","parisK"],tud:"Leading change against a deadline",topics:"Carbon budget for the Games; reuse and temporary venues; the leader's journey."},
   ggB:{t:"Fair process leadership",q:"How do you keep people committed to a sustainability plan when the trade-offs get hard?",paper:"ggB",read:["sdg"],tud:"Leadership and fair process",topics:"Fair process: engagement, explanation, expectation clarity."},
-  board:{t:"Sustainability in the boardroom",q:"How should a board choose between competing paths to long-term value?",paper:"apsys",digital:"rivelle",media:["webRegional"],read:["aiProfit"],tud:"Governing for long-term value",topics:"Board decisions; investor expectations; regional differences in regulation."}
+  board:{t:"Sustainability in the boardroom",q:"How should a board choose between competing paths to long-term value?",paper:"apsys",digital:"rivelle",read:["aiProfit"],tud:"Governing for long-term value",topics:"Board decisions; investor expectations; competing paths to long-term value."}
 };
 
 /* Modules: short = one-session version (7-session plan, with overrides); long = sessions in the 14-session plan */
@@ -311,13 +375,13 @@ const MODULES = [
   {id:"commons",part:"p1",t:"Commons",req:true,main:"Salmon Rush",short:{s:"salmon"},long:[{s:"salmon"}]},
   {id:"netzero",part:"p2",t:"Net-zero roadmap",main:"Schneider Electric; INSEAD Carbon Commitments",short:{s:"schneider"},long:[{s:"schneider"}]},
   {id:"scope3",part:"p2",t:"Scope 3 and supplier ratings",main:"EcoVadis",short:{s:"ecovadis"},long:[{s:"ecovadis"}]},
-  {id:"reg",part:"p2",t:"Regulation",main:"The Lobbying Game; How to Become an Owl",short:{s:"reg"},long:[{s:"reg"}]},
+  {id:"reg",part:"p2",t:"Regulation",main:"The Lobbying Game; Owls, Sheep and Dodos; How to Become an Owl",short:{s:"reg"},long:[{s:"reg"}]},
   {id:"circecon",part:"p3",t:"Economics of circularity",req:true,main:"Malta PET; Alpha",short:{s:"malta"},long:[{s:"malta"}]},
-  {id:"design",part:"p3",t:"Designing for circularity",main:"VHS tape; Clean Jeans",short:{s:"vhs",alt:["jeans"],media:["webBIC","webFashion"]},long:[{s:"vhs"},{s:"jeans"}]},
+  {id:"design",part:"p3",t:"Designing for circularity",main:"VHS tape; Clean Jeans",short:{s:"vhs",alt:["jeans"],media:["webBIC","webProduct","webFashion"]},long:[{s:"vhs",media:["webBIC","webProduct"]},{s:"jeans",media:["webFashion"]}]},
   {id:"eco",part:"p3",t:"Circular ecosystems",main:"Tilos; Zirq; Alpha 3",short:{s:"tilos",t:"Circular ecosystems: Tilos and Zirq",alt:["zirq","alpha3","cycleon"],media:["webAuto"]},long:[{s:"zirq"},{s:"tilos"}]},
   {id:"assess",part:"p4",t:"Assessment",main:"Alfonso meets Maria; Frostline",short:{s:"lca"},long:[{s:"lca"}]},
   {id:"value",part:"p4",t:"Investor and corporate valuation perspectives",main:"SMCP / Alpha 2; Ambienta (B), with Ambienta (A)",short:{s:"npv",t:"Investor and corporate valuation perspectives",also:["ambB"],alt:["ambA"],read:["smrCase","econ"],topics:"Corporate side: NPV+ and the risk, revenue, talent and cost-of-capital effects of sustainability initiatives (SMCP / Alpha 2). Investor side: impact-driven equity decisions (Ambienta B). Both cases are required."},long:[{s:"npv"},{s:"ambienta"}]},
-  {id:"gov",part:"p4",t:"Governance and leadership",main:"Georgina Grenon & Paris 2024 (A, B); Apsys; Rivelle",short:{s:"board",t:"Governance and leadership",pre:["ggA","ggB"],read:["parisSmr","aiProfit"],topics:"Leading a sustainability journey (Paris 2024 A); fair process (Paris 2024 B); board decisions on long-term value (Apsys / Rivelle)."},long:[{s:"ggA",t:"Leadership: Paris 2024 and fair process",also:["ggB"],read:["parisSmr","sdg"],topics:"The leader's journey; carbon budget for the Games; fair process: engagement, explanation, expectation clarity."},{s:"board"}]}
+  {id:"gov",part:"p4",t:"Governance and leadership",main:"Georgina Grenon & Paris 2024 (A, B); Apsys; Rivelle",short:{s:"board",t:"Governance and leadership",pre:["ggA","ggB"],media:["webStrategic"],read:["parisSmr","aiProfit"],topics:"Leading a sustainability journey (Paris 2024 A); fair process (Paris 2024 B); board decisions on long-term value (Apsys / Rivelle)."},long:[{s:"ggA",t:"Leadership: Paris 2024 and fair process",also:["ggB"],read:["parisSmr","sdg"],topics:"The leader's journey; carbon budget for the Games; fair process: engagement, explanation, expectation clarity."},{s:"board"}]}
 ];
 const DEFAULT_PICK = ["commons","netzero","reg","circecon","eco","value","gov"];
 
@@ -342,7 +406,7 @@ function resolve(mod,slot){
   else { main=digital||paper; if(digital&&paper) before.push(paper); before=before.concat(pre); }
   const alt=(s.alt||[]).filter(a=>a!==main&&!before.includes(a));
   const also=(s.also||[]).filter(a=>a!==main);
-  return {mod,s,main,also,before,option,alt:alt.filter(a=>!also.includes(a)),arts:s.read||[],media:s.media||[],extra:s.extra||[]};
+  return {mod,s,main,also,before,post:s.post||[],option,alt:alt.filter(a=>!also.includes(a)),arts:s.read||[],media:s.media||[],extra:s.extra||[]};
 }
 function sessions(){
   const out=[];
@@ -384,10 +448,11 @@ function renderPlan(){
     rows.push(["Question",esc(s.q)]);
     rows.push(["In class",`<ul>${[r.main,...r.also].map(caseItem).join("")}</ul>`]);
     if(r.before.length) rows.push(["Before class",`<ul>${r.before.map(caseItem).join("")}</ul>`]);
+    if(r.post.length) rows.push(["After class",`<ul>${r.post.map(caseItem).join("")}</ul>`]);
     if(r.option.length) rows.push(["Assignment",`<ul>${r.option.map(caseItem).join("")}</ul><span class="fmt">Recommended individual or team assignment, before or after class.</span>`]);
     rows.push(["Reading",`<ul>${r.arts.map(artItem).join("")}</ul>`]);
     if(r.extra.length) rows.push(["Additional reading",`<ul>${r.extra.map(caseItem).join("")}</ul>`]);
-    if(r.media.length) rows.push(["Video",`<ul>${r.media.map(caseItem).join("")}</ul>`]);
+    if(r.media.length) rows.push([r.media.length>1?"Videos":"Video",`<ul>${r.media.map(caseItem).join("")}</ul>`]);
     if(r.alt.length) rows.push(["Alternatives",`<ul>${r.alt.map(caseItem).join("")}</ul>`]);
     rows.push(["Topics",esc(s.topics)]);
     html+=`<li class="sess"><h4><span class="no">Session ${i+1}.</span> ${esc(s.t)}</h4><dl>${rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></li>`;
@@ -413,12 +478,12 @@ function usage(){
   const map={};
   MODULES.forEach(m=>[m.short,...m.long].forEach(sl=>{
     const s=Object.assign({},S[sl.s],sl);
-    [s.paper,s.digital,...(s.also||[]),...(s.pre||[]),...(s.extra||[]),...(s.media||[]),...(s.alt||[])].filter(Boolean).forEach(c=>{(map[c]=map[c]||new Set()).add(m.t);});
+    [s.paper,s.digital,...(s.also||[]),...(s.pre||[]),...(s.post||[]),...(s.extra||[]),...(s.media||[]),...(s.alt||[])].filter(Boolean).forEach(c=>{(map[c]=map[c]||new Set()).add(m.t);});
   }));
   return map;
 }
 const USED = usage();
-const FILTERS = [["all","All"],["paper","Paper"],["live","Live"],["ai","AI"],["vr","VR"],["webinar","Webinars"],["game","Simulation"],["note","Notes"]];
+const FILTERS = [["all","All"],["paper","Paper"],["live","Live and AI"],["vr","VR"],["webinar","Webinars"],["game","Simulation"],["note","Notes"]];
 function renderLib(){
   const f=document.getElementById("filters");
   f.innerHTML = FILTERS.map(([k,l])=>`<input type="radio" name="flt" id="f-${k}" value="${k}"${state.filter===k?" checked":""}><label for="f-${k}">${l}</label>`).join("");
@@ -427,7 +492,7 @@ function renderLib(){
 }
 function renderLibList(){
   const twinOf={}; Object.entries(CASES).forEach(([id,c])=>{if(c.twin) twinOf[c.twin]=id;});
-  const ids=Object.keys(CASES).filter(id=>state.filter==="all"||CASES[id].k===state.filter).sort((a,b)=>(CASES[b].y||0)-(CASES[a].y||0));
+  const ids=Object.keys(CASES).filter(id=>state.filter==="all"||CASES[id].k===state.filter||(state.filter==="live"&&CASES[id].k==="ai")).sort((a,b)=>(CASES[b].y||0)-(CASES[a].y||0));
   document.getElementById("libOut").innerHTML = ids.map(id=>{
     const c=CASES[id], used=[...(USED[id]||[])], pair=c.twin||twinOf[id];
     const meta=[KIND[c.k],c.y,c.by,c.d,c.soon,c.src==="author"?"On request from the author":null,pair?`Paired with: ${CASES[pair].t}`:null].filter(Boolean);
@@ -458,10 +523,11 @@ function planText(){
     L.push(`  Question: ${s.q}`);
     L.push(`  In class: ${[r.main,...r.also].map(c=>`${CASES[c].t} (${KIND[CASES[c].k]})`).join("; ")}`);
     if(r.before.length) L.push(`  Before class: ${r.before.map(c=>CASES[c].t).join("; ")}`);
+    if(r.post.length) L.push(`  After class: ${r.post.map(c=>CASES[c].t).join("; ")}`);
     if(r.option.length) L.push(`  Assignment (before or after class):${r.option.map(c=>CASES[c].t).join("; ")}`);
     L.push(`  Reading:${r.arts.map(a=>`${ART[a].t} (${ART[a].o}, ${ART[a].y})`).join("; ")}`);
     if(r.extra.length) L.push(`  Additional reading: ${r.extra.map(c=>CASES[c].t).join("; ")}`);
-    if(r.media.length) L.push(`  Video: ${r.media.map(c=>CASES[c].t+(CASES[c].u?" "+CASES[c].u:"")).join("; ")}`);
+    if(r.media.length) L.push(`  Videos: ${r.media.map(c=>CASES[c].t+(CASES[c].u?" "+CASES[c].u:"")).join("; ")}`);
     if(r.alt.length) L.push(`  Alternatives: ${r.alt.map(c=>CASES[c].t).join("; ")}`);
     L.push(`  Topics: ${s.topics}`,"");
   });
