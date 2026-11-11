@@ -1007,5 +1007,9 @@ function toggleMenu(){
   var h=document.querySelector('.hamburger'); if(h){ h.setAttribute('aria-label','Menu'); h.setAttribute('aria-controls','navLinks'); }
 })();
 </script>
+<script id="deep-link">
+/* Open a tab from the address, e.g. #book or #teaching, so other pages can link straight to it. */
+(function(){function go(){var id=(location.hash||"").slice(1);if(id&&document.getElementById("page-"+id))showPage(id);}go();window.addEventListener("hashchange",go);})();
+</script>
 </body>
 </html>
